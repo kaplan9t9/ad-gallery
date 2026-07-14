@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Print Room</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">PR</span>
+      <span class="logo-word">Print Room</span>
+    </a>
+    <nav class="header-nav">
+      <a href="index.html">← Back to gallery</a>
+    </nav>
+  </div>
+</header>
+
+<div class="admin-shell">
+
+  <div class="login-card" id="loginCard">
+    <h2>Admin login</h2>
+    <p>Enter a GitHub Personal Access Token scoped to <strong id="repoName">your repo</strong> with <strong>Contents: Read and write</strong> and <strong>Issues: Read and write</strong>. It's kept only in this tab's session storage.</p>
+    <div class="notice" id="loginNotice"></div>
+    <form id="loginForm">
+      <div class="field">
+        <label for="tokenInput">GitHub Token</label>
+        <input type="password" id="tokenInput" placeholder="github_pat_…" autocomplete="off" required />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Log in</button>
+    </form>
+  </div>
+
+  <div id="dashboard" style="display:none;">
+    <div class="admin-header">
+      <h1>Dashboard</h1>
+      <button class="logout-link" id="logoutBtn">Log out</button>
+    </div>
+
+    <div class="stat-strip" style="display:inline-grid; grid-auto-flow:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-bottom:28px;">
+      <div class="stat-cell" style="background:var(--surface); padding:16px 18px;">
+        <span class="stat-num" id="dashTotal" style="font-family:var(--font-mono); font-size:24px; color:var(--accent); display:block;">0</span>
+        <span class="stat-label" style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint);">Total items</span>
+      </div>
+    </div>
+
+    <nav class="section-tabs admin-tabs">
+      <button class="section-tab active" id="adminTabImages">Images</button>
+      <button class="section-tab" id="adminTabVideos">Videos</button>
+    </nav>
+
+    <div class="upload-card">
+      <h3 id="uploadCardTitle">Upload a new image</h3>
+      <div class="notice" id="uploadNotice"></div>
+      <form id="uploadForm">
+        <div class="field">
+          <label for="uploadTitle">Title</label>
+          <input type="text" id="uploadTitle" required />
+        </div>
+        <div class="field">
+          <label for="uploadCategory">Category</label>
+          <input type="text" id="uploadCategory" placeholder="e.g. travel, product, event" />
+        </div>
+        <div class="field">
+          <label for="uploadDescription">Description</label>
+          <textarea id="uploadDescription"></textarea>
+        </div>
+        <div class="field">
+          <label for="uploadFile">File</label>
+          <input type="file" id="uploadFile" accept="image/*" required />
+          <div class="field-hint">Images up to 8MB, videos up to 40MB (edit config.js to change).</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+    </div>
+
+    <h3 style="font-family: var(--font-display); margin-bottom: 12px;">Manage items</h3>
+    <div class="admin-list" id="adminList"></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  Admin panel · <a href="index.html">View public gallery</a>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+<script>
+  document.getElementById("repoName").textContent =
+    `${window.SITE_CONFIG.GITHUB_OWNER}/${window.SITE_CONFIG.GITHUB_REPO}`;
+</script>
+</body>
+</html>

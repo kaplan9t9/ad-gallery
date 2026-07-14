@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Print Room — Gallery</title>
+<meta name="description" content="A light, editorial image and video gallery." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+
+<!--
+  ADSTERRA POPUNDER SCRIPT
+  Paste the <script> snippet Adsterra gives you for your Popunder
+  zone here. It manages its own firing frequency — no button on
+  this page triggers it manually.
+
+  <script type="text/javascript" src="//YOUR-POPUNDER-SCRIPT-URL.js"></script>
+-->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">PR</span>
+      <span class="logo-word">Print Room</span>
+    </a>
+    <nav class="header-nav">
+      <a href="admin.html">Admin</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Issue 001</div>
+  <h1>A gallery of stills and motion.</h1>
+  <p>Browse by section — images or video — and search or filter within each.</p>
+</section>
+
+<nav class="section-tabs">
+  <button class="section-tab active" id="tabImages">Images</button>
+  <button class="section-tab" id="tabVideos">Videos</button>
+</nav>
+
+<div class="controls">
+  <input type="text" id="searchInput" class="search-input" placeholder="Search title or description…" />
+  <select id="categorySelect" class="category-select">
+    <option value="">All categories</option>
+  </select>
+</div>
+
+<main class="gallery" id="gallery"></main>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box">
+    <div class="modal-media-wrap" id="modalMediaWrap"></div>
+    <div class="modal-body">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalDownload">Download</button>
+        <button class="btn" id="modalShare">Copy link</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="site-footer">
+  Print Room · <a href="admin.html">Admin panel →</a>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>
