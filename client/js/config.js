@@ -7,7 +7,7 @@
 // =========================================================
 
 window.SITE_CONFIG = {
-  GITHUB_OWNER: "YOUR_USERNAME",
+  GITHUB_OWNER: "kaplan9t9",
   GITHUB_REPO: "ad-gallery",
 
   // All gallery items (images AND videos) are tagged with this
